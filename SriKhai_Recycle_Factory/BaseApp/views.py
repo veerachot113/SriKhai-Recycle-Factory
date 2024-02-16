@@ -38,7 +38,7 @@ def sign_in(request):
             if user: 
 
                 login(request, user)
-                return redirect('home')
+                return redirect('identity')
 
         else:
             form = LoginForm()

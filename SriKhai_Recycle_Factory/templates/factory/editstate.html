@@ -1,0 +1,34 @@
+{%  extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <div class="max-w-5xl mx-auto bg-white rounded p-6">
+  
+
+    <h1 class="text-xl font-bold text-center mb-4">User Profiles</h1>
+    <div class="grid grid-cols-1 gap-4 max-w-5xl">
+        <!-- วนลูปแสดงข้อมูลทุกๆ Profile -->
+
+        <div class="bg-white p-4 rounded-lg shadow-md">
+            <h2 class="text-xl font-bold mb-2">{{ nfn.first_name }} {{ nfn.last_name }}</h2>
+            <p class="text-gray-600 mb-2">Address: {{ nfn.address }}</p>
+            <p class="text-gray-600 mb-2">Bank: {{ nfn.bank }}</p>
+            <p class="text-gray-600 mb-2">Bank Accounts: {{ nfn.bank_accounts }}</p>
+            <p class="text-gray-600 mb-2">Bank Number: {{ nfn.bank_number }}</p>
+            <img src="{{ nfn.pass_bookQR.url }}" alt="Passbook QR" class="w-96 h-96 object-cover mb-2">
+            <p class="text-gray-600">Status: {% if nfn.status %} ยืนยันตัวตนแล้ว {% else %} ยังไม่ยืนยันตัวตน {% endif %}</p>
+            <form action="" method="post" enctype="multipart/form-data" class="p-10 bg-gray-50 text-center">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <div class="mb-4 text-center">
+                    <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 ">บันทึก</button>
+                </div>
+            </form>
+        </div>
+        
+        
+    </div>
+</div>
+{% endblock %}

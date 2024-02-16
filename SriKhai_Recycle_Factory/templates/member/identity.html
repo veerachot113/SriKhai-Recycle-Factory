@@ -1,0 +1,48 @@
+{%  extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-lg mx-auto bg-white rounded p-6">
+
+    
+            <h2 class="text-2xl font-bold mb-4 text-center">แบบฟอร์มยืนยันตัวตน</h2>
+            <form action="" method="post" enctype="multipart/form-data" class="p-10 border rounded-lg bg-gray-50">
+                {% csrf_token %}
+                <div class="mb-4">
+                    <label for="first_name" class="block text-sm font-medium text-gray-700">ชื่อ</label>
+                    <input type="text" required id="first_name" name="first_name" class="mt-1 p-2 block w-full border rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                </div>
+                <div class="mb-4">
+                    <label for="last_name" class="block text-sm font-medium text-gray-700">นามสกุล</label>
+                    <input type="text" required id="last_name" name="last_name" class="mt-1 p-2 block w-full border rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                </div>
+                <div class="mb-4">
+                    <label for="address" class="block text-sm font-medium text-gray-700">ที่อยู่</label>
+                    <textarea id="address" required name="address" rows="3" class="mt-1 p-2 block w-full border rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
+                </div>
+                <div class="mb-4">
+                    <label for="bank" class="block text-sm font-medium text-gray-700">ธนาคาร</label>
+                    <input type="text" required id="bank" name="bank" class="mt-1 p-2 block w-full border rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                </div>
+                <div class="mb-4">
+                    <label for="bank_accounts" class="block text-sm font-medium text-gray-700">ชื่อบัญชี</label>
+                    <input type="text" required id="bank_accounts" name="bank_accounts" class="mt-1 p-2 block w-full border rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                </div>
+                <div class="mb-4">
+                    <label for="bank_number" class="block text-sm font-medium text-gray-700">เลขที่บัญชี</label>
+                    <input type="text" required id="bank_number" name="bank_number" class="mt-1 p-2 block w-full border rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                </div>
+                <div class="mb-4">
+                    <label for="pass_bookQR" class="block text-sm font-medium text-gray-700">หน้าสมุดบัญชีหรือ_QRcode</label>
+                    <input type="file" required id="pass_bookQR" name="pass_bookQR" class="mt-1 p-2 block w-full border rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                </div>
+                <div class="mb-4 text-center">
+                    <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 ">บันทึก</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+{% endblock %}

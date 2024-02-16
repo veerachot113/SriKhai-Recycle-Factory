@@ -12,7 +12,7 @@
         <a href="#" class="text-white text-xl font-bold">Recycle Factory</a>
         <ul class="flex space-x-4">
             <li><a href="/" class="text-white hover:text-gray-300">หน้าแรก</a></li>
-            <li><a href="#" class="text-white hover:text-gray-300">About</a></li>
+            <li><a href="{% url 'identity' %}" class="text-white hover:text-gray-300">ยืนยันตัวตน</a></li>
             <li><a href="#" class="text-white hover:text-gray-300">Products</a></li>
             <li><a href="#" class="text-white hover:text-gray-300">ติดต่อ</a></li>
             {% if user.is_authenticated %}
