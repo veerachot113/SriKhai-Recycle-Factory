@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>base</title>
+</head>
+<body>
+  <nav class="bg-gray-800 p-6">
+    <div class="container mx-auto flex justify-between items-center">
+        <a href="#" class="text-white text-xl font-bold">Recycle Factory</a>
+        <ul class="flex space-x-4">
+            <li><a href="/" class="text-white hover:text-gray-300">หน้าแรก</a></li>
+            <li><a href="#" class="text-white hover:text-gray-300">About</a></li>
+            <li><a href="#" class="text-white hover:text-gray-300">Products</a></li>
+            <li><a href="#" class="text-white hover:text-gray-300">ติดต่อ</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="#" class="text-white hover:text-gray-300">{{ user.username }}</a></li>
+                <li><a href="{% url 'logout' %}" class="text-white hover:text-gray-300">ออกจากระบบ</a></li>
+            {% else %}
+                <li><a href="{% url 'register' %}" class="text-white hover:text-gray-300">สมัครสมาชิก</a></li>
+                <li><a href="{% url 'login' %}" class="text-white hover:text-gray-300">เข้าสู่ระบบ</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+
+  {% block content %} 
+
+
+
+  {% endblock %}
+
+      
+      
+    
+    
+</body>
+</html>
+
+
+      
+      
+    
+    
+</body>
+</html>
+
