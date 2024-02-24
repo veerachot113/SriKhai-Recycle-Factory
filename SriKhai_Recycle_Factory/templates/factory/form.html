@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body class="bg-green-200" style="font-family: kanit;">
+  <div class="grid justify-items-center mt-[5cm] text-3xl font-bold">
+    <p>เรียกรถเข้ารับ</p>
+    <div class="max-w-sm max-auto border-2 border-gray-400 rounded-xl bg-white m-4 grid grid-cols-1">
+      <form action="" method="post">
+        <div class="m-2">
+          <label for="" class="p-2 text-sm font-medium">รูปภาพ : </label>
+          <input type="file" class="border border-gray-300 rounded text-sm font-medium">
+        </div>
+        <div class="m-2">
+          <label for="" class="p-2 text-sm font-medium">ที่อยู่ : </label>
+          <textarea class="border border-gray-300 rounded p-2 text-sm font-medium"></textarea>
+        </div>
+        <div class="m-2">
+          <label for="" class="p-2 text-sm font-medium">ปักหมุด : </label>
+          <button type="button"
+            class="border border-gray-300 rounded p-2 text-sm font-medium hover:bg-black hover:text-white">Click get
+            location</button>
+        </div>
+        <div class="m-2 text-center text-md">
+          <label for="" class="p-2 text-lg font-medium">ประเภทขยะ</label>
+        </div>
+
+        <div class="text-center">
+          <div class="m-2">
+            <input type="checkbox" class="border border-gray-300 rounded">
+            <label for="" class="p-2 text-sm font-medium">ขวด</label>
+          </div>
+          <div class="m-2">
+            <input type="checkbox" class="border border-gray-300 rounded">
+            <label for="" class="p-2 text-sm font-medium">ถุง</label>
+          </div>
+          <div class="m-2">
+            <input type="checkbox" class="border border-gray-300 rounded">
+            <label for="" class="p-2 text-sm font-medium">ลัง</label>
+          </div>
+          <div class="m-2">
+            <input type="checkbox" class="border border-gray-300 rounded">
+            <label for="" class="p-2 text-sm font-medium">ขวดแก้ว</label>
+          </div>
+          <div class="m-2">
+            <input type="checkbox" class="border border-gray-300 rounded">
+            <label for="" class="p-2 text-sm font-medium">กระดาษ</label>
+          </div>
+          <div class="m-2">
+            <input type="checkbox" class="border border-gray-300 rounded">
+            <label for="" class="p-2 text-sm font-medium">กระป๋อง</label>
+          </div>
+          <div class="m-5">
+            <button type="submit" class="border border-gray-300 rounded text-lg p-2 px-5 bg-blue-200 hover:bg-blue-400">เรียกรถ</button>
+          </div>
+        </div>
+    </div>
+    </form>
+  </div>
+  </div>
+</body>
+
+</html>

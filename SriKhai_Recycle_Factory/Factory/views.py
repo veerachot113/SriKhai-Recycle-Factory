@@ -1,6 +1,7 @@
+#Factory/views.py
 from django.shortcuts import render,HttpResponse,redirect
 from Member.models import*
-from .forms import EditStatus
+from .forms import *
 
 # Create your views here.
 
@@ -24,3 +25,4 @@ def editestate(request,id):
         ed = EditStatus(instance=nfn)
 
     return render(request,'factory/editstate.html',{'form':ed,'nfn':nfn})
+

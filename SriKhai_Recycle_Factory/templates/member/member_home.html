@@ -1,3 +1,4 @@
+<!-- member_home.html -->
 {% extends 'base.html' %}
 
 {% load crispy_forms_tags %}
@@ -6,20 +7,35 @@
 <div class="container mx-auto px-4 py-8">
     <div class="max-w-2xl mx-auto bg-white rounded p-6">
         {% if pf %}
-
-        {% if pf.status == True and pf.cancel == False %}
-        <h2 class="text-2xl font-bold mb-4 text-center">ผ่านการตรวจสอบยืนยันตัวตนแล้ว</h2>
-        เริ่มใช้บริการได้
-        {% elif pf.status == False and pf.cancel == False %}
-        <h2 class="text-2xl font-bold mb-4 text-center">รอตรวจสอบยืนยัน</h2>
-        {% elif pf.cancel == True %}
-        <h2 class="text-2xl font-bold mb-4 text-center">ไม่ผ่านตรวจสอบยืนยัน</h2>
-        <div class="text-center">
-        <a href="{% url 'delete_pf' %}" class=" px-3 py-2 bg-blue-600 text-white border border-gray-300 rounded-md hover:bg-blue-700">คลิก ส่งเอกสารใหม่</a>
-        </div>
-        {% endif %}
-    
+            {% if pf.status == True and pf.cancel == False %}
+                <h2 class="text-2xl font-bold mb-4 text-center">ผ่านการตรวจสอบยืนยันตัวตนแล้ว</h2>
+                <h1 class="text-2x  text-center">เริ่มใช้บริการได้แล้ว!</h1>
+                
+                <div class="text-center mt-4">
+                    <a href="{% url 'home' %}" class=" px-3 py-2 bg-blue-600 text-white border border-gray-300 rounded-md hover:bg-blue-700">กลับหน้าแรก</a>
+                </div>
+            {% elif pf.status == False and pf.cancel == False %}
+                <h2 class="text-2xl font-bold mb-4 text-center">รอตรวจสอบยืนยัน</h2>
+                {% comment %} ส่วนนี้สำหรับยืนยันตัวตน คุณสามารถเพิ่มโค้ดส่วนนี้ตามความต้องการ {% endcomment %}
+            {% elif pf.cancel == True %}
+                <h2 class="text-2xl font-bold mb-4 text-center">ไม่ผ่านตรวจสอบยืนยัน</h2>
+                <div class="text-center">
+                    <a href="{% url 'delete_pf' %}" class=" px-3 py-2 bg-blue-600 text-white border border-gray-300 rounded-md hover:bg-blue-700">คลิก ส่งเอกสารใหม่</a>
+                </div>
+            {% endif %}
         {% endif %}
     </div>
 </div>
+{% if not pf.status %}
+    <script>
+        window.onload = function() {
+            var links = document.getElementsByTagName('a');
+            for (var i = 0; i < links.length; i++) {
+                links[i].onclick = function() {
+                    return false;
+                };
+            }
+        };
+    </script>
+{% endif %}
 {% endblock %}
