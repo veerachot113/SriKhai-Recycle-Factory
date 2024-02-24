@@ -1,0 +1,35 @@
+<!-- recycle_list.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-4">รายการขายขยะ</h1>
+    <div class="overflow-x-auto">
+        <table class="min-w-full table-auto border-collapse border border-gray-400">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 bg-gray-200 border border-gray-400">ลำดับ</th>
+                    <th class="px-4 py-2 bg-gray-200 border border-gray-400">รูปภาพ</th>
+                    <th class="px-4 py-2 bg-gray-200 border border-gray-400">ที่อยู่</th>
+                    <th class="px-4 py-2 bg-gray-200 border border-gray-400">แผนที่</th>
+                    <th class="px-4 py-2 bg-gray-200 border border-gray-400">สถานะ</th>
+                    <th class="px-4 py-2 bg-gray-200 border border-gray-400">วันที่</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for purchase in purchases %}
+                <tr>
+                    <td class="px-4 py-2 border border-gray-400">{{ forloop.counter }}</td>
+                    <td class="px-4 py-2 border border-gray-400"><img src="{{ purchase.image.url }}" class="w-24 h-24 object-cover"></td>
+                    <td class="px-4 py-2 border border-gray-400">{{ purchase.address }}</td>
+                    <td class="px-4 py-2 border border-gray-400">{{ purchase.map_pin }}</td>
+                    <td class="px-4 py-2 border border-gray-400">{{ purchase.status }}</td>
+                    <td class="px-4 py-2 border border-gray-400">{{ purchase.created_at }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

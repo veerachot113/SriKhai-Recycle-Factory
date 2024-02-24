@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ฟอร์มรับซื้อขยะ</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto py-8">
+        <h1 class="text-2xl font-bold mb-4">ฟอร์มรับซื้อขยะ</h1>
+        <form action="#" method="POST" enctype="multipart/form-data" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <!-- รูปภาพ -->
+            <div class="mb-4">
+                <label for="image" class="block text-gray-700 font-bold mb-2">รูปภาพ:</label>
+                <input type="file" id="image" name="image" accept="image/*" class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <!-- ที่อยู่ -->
+            <div class="mb-4">
+                <label for="address" class="block text-gray-700 font-bold mb-2">ที่อยู่:</label>
+                <textarea id="address" name="address" rows="3" class="resize-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+            </div>
+            <!-- ปักหมุดพื้นที่ -->
+            <div class="mb-4">
+                <label for="map_pin" class="block text-gray-700 font-bold mb-2">ปักหมุดพื้นที่:</label>
+                <input type="text" id="map_pin" name="map_pin" class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <!-- ชนิดขยะ -->
+            <div class="mb-4">
+                <p class="block text-gray-700 font-bold mb-2">ชนิดขยะที่ต้องการขาย:</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <label><input type="checkbox" name="waste_type[]" value="ขวด" class="mr-2 leading-tight"> ขวด</label>
+                    <label><input type="checkbox" name="waste_type[]" value="ถุง" class="mr-2 leading-tight"> ถุง</label>
+                    <label><input type="checkbox" name="waste_type[]" value="ลัง" class="mr-2 leading-tight"> ลัง</label>
+                    <label><input type="checkbox" name="waste_type[]" value="ขวดแก้ว" class="mr-2 leading-tight"> ขวดแก้ว</label>
+                    <label><input type="checkbox" name="waste_type[]" value="กระดาษ" class="mr-2 leading-tight"> กระดาษ</label>
+                    <label><input type="checkbox" name="waste_type[]" value="กระป๋อง" class="mr-2 leading-tight"> กระป๋อง</label>
+                </div>
+            </div>
+            <!-- ปุ่มส่ง -->
+            <div class="flex items-center justify-between">
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">ยืนยัน</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

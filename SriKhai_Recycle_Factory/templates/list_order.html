@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="flex justify-center " style="font-family: Georgia, 'Times New Roman', Times, serif;">
+    <div class="container mt-10">
+        <div class="text-center text-2xl font-bold">
+            <p>รายการรับรถ</p>
+        </div>
+        {% for list_order in list_orders %}
+        <div class="grid grid-cols-1 gap-5 border mt-5 p-5 rounded-lg shadow-slate-400 shadow-lg">
+            <a href="{% url 'detail_order' %}" class="hover: scale-y-110">
+                <div class="p-2 border-zinc-800 rounded-lg shadow-emerald-600 shodow-sm">
+                    
+                    <p>ผู้เรียกรถ : {{ list_order.profile.user.username }}</p>
+                <p class="text-sm">ที่อยู่:{{ list_order.address }}</p>
+                <p class="text-sm">สถานะ:{{ list_order.status }}</p>
+                
+            </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

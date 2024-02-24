@@ -4,8 +4,8 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="container mx-auto px-4 py-8">
-    <div class="max-w-2xl mx-auto bg-white rounded p-6">
+<div class="container mx-auto px-4 py-8 ">
+    <div class="max-w-2xl mx-auto bg-white rounded p-6 bg">
 
         <h2 class="text-2xl font-bold mb-4 text-center">รอตรวจสอบยืนยัน</h2>
         {% if nofirm %}
@@ -52,7 +52,7 @@
             <!-- Card 1 -->
             {% for f in cancel %}
             <a href="{% url 'editestate' f.id %}" class="hover:scale-105">
-            <div class=" rounded-lg shadow p-6 border bg-red-200">
+            <div class=" rounded-lg shadow p-6 border bg-red-200 ">
                 <h2 class="text-lg font-bold mb-2">{{ f.first_name }} {{f.last_name}}</h2>
                 <p class="text-gray-600">สถานะ :
                     {% if f.cancel == True %}

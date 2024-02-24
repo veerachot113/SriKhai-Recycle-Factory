@@ -1,5 +1,6 @@
 <!-- home.html -->
-{%  extends 'base.html' %}
+
+{% extends 'base.html' %}
 
 {% load crispy_forms_tags %}
 
@@ -46,7 +47,12 @@
 
     <!-- Button to go to sell garbage form -->
     <div class="text-center mt-8">
-        <a href="{% url 'purchase_recycle' %}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">ขายขยะ</a>
+        <a href="{% url 'recycle_purchase' %}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">ขายขยะ</a>
+    </div>
+
+    <!-- Link to view recycle list -->
+    <div class="text-center mt-8">
+        <a href="{% url 'list_order' %}" class="text-blue-500 hover:text-blue-700 font-semibold">ดูรายการขายขยะ</a>
     </div>
 </section>
 

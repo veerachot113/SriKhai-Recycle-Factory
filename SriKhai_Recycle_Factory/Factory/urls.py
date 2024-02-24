@@ -6,4 +6,5 @@ from .views import *
 urlpatterns = [
     path('',cfidentity,name='cfidentity'),
     path('editestate/<int:id>/',editestate,name='editestate')
+    
 ]

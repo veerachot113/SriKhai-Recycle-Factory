@@ -2,6 +2,7 @@
 from django.shortcuts import render,redirect
 from .models import*
 from .forms import *
+from django.shortcuts import render, get_object_or_404
 
 def identity(request):
     try:
@@ -61,15 +62,24 @@ def delete_pf(request):
     return redirect('identity')
 
 
-def purchase_recycle(request):
+def recycle_purchase(request):
     if request.method == 'POST':
         form = RecyclePurchaseForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('home')  # หรือไปยังหน้าอื่นที่ต้องการ
+            return redirect('home')  # หรือไปยัง URL ที่คุณต้องการหลังจากบันทึกข้อมูลแล้ว
     else:
         form = RecyclePurchaseForm()
-    return render(request, 'member/purchase_recycle.html', {'form': form})
+    
+    return render(request, 'member/recycle_purchase.html', {'form': form})
 
-def purchase_success(request):
-    return render(request, 'member/purchase_success.html')
+
+def detail_order(request, order_id):
+    # ดึงข้อมูลการจองจากฐานข้อมูลด้วยรหัสการจอง
+    order = get_object_or_404(RecyclePurchase, id=order_id)
+    return render(request, 'detail_order.html', {'order': order})
+
+
+def list_order(request):
+    list_orders = RecyclePurchase.objects.all()
+    return render(request, 'list_order.html', {'list_orders': list_orders})

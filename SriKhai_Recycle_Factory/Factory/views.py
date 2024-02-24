@@ -26,3 +26,5 @@ def editestate(request,id):
 
     return render(request,'factory/editstate.html',{'form':ed,'nfn':nfn})
 
+
+

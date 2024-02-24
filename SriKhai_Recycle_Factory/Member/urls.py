@@ -5,7 +5,13 @@ urlpatterns = [
     path('identity/',identity,name='identity'),
     path('home/',home,name='home_member'),
     path('delete_pf/',delete_pf,name='delete_pf'),
-    path('purchase/', purchase_recycle, name='purchase_recycle'),
-    path('purchase/success/', purchase_success, name='purchase_success'),
+    path('recycle_purchase/', recycle_purchase, name='recycle_purchase'),
+    # path('recycle-list/', recycle_list, name='recycle_list'),
+    path('list_order/', list_order, name='list_order'),
+    path('detail_order/<int:order_id>/',detail_order, name='detail_order'),
+
+
+    
+    
     
 ]
