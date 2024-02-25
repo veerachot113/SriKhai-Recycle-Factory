@@ -26,7 +26,12 @@ class RecyclePurchase(models.Model):
     has_can = models.BooleanField(default=False)
     has_glass_bottle = models.BooleanField(default=False)
     has_paper = models.BooleanField(default=False)
-    has_can = models.BooleanField(default=False)
+    weight_has_bottle = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
+    weight_has_bag = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
+    weight_has_can = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
+    weight_has_glass_bottle = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
+    weight_has_paper = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
+
     TYPES_CHOICES = [
         ('กำลังดำเนินการ', 'กำลังดำเนินการ'),
         ('กำลังเข้ารับ', 'กำลังเข้ารับ'),

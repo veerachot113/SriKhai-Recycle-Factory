@@ -9,15 +9,12 @@ urlpatterns = [
     path('home/',home,name='home_member'),
     path('delete_pf/',delete_pf,name='delete_pf'),
     path('recycle_purchase/', recycle_purchase, name='recycle_purchase'),
-    # path('recycle-list/', recycle_list, name='recycle_list'),
-    path('list_order/', list_order, name='list_order'),
+    path('list_order/', list_order, name='list_order'), 
+    path('order/<int:order_id>/',order_detail, name='order_detail'),
+    path('order/<int:order_id>/update_status/', update_order_status, name='update_order_status'),
     
-     path('purchase/<int:purchase_id>/', detail_purchase, name='detail_purchase'),
-    # เพิ่ม URL pattern สำหรับหน้ารายละเอียดการจอง
-    # ในกรณีที่มีการอัปเดตสถานะของการจองโดยแอดมิน
-  
-
-    
+    # เพิ่ม URL pattern สำหรับแสดงหน้ารายละเอียดของออเดอร์
+    # เพิ่ม URL pattern สำหรับแสดงรายการออเดอร์ทั้งหมด
     
     
 ]

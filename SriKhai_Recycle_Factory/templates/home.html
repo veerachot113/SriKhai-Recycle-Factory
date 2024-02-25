@@ -3,7 +3,7 @@
 {% extends 'base.html' %}
 
 {% load crispy_forms_tags %}
-
+{% load static %}
 {% block content %}
 
 <section class="bg-cover bg-center h-screen items-center text-white" style="background-color: rgb(255, 255, 255);">
@@ -56,15 +56,19 @@
     </div>
     {% endif %}
 
-    <div class="container mx-auto flex flex-wrap -mx-4">
+    
+      <h2 class="text-2xl font-bold mb-4 text-black text-center">ขวดพลาสติก</h2>
+      
+
+    <div class="container mx-auto flex flex-wrap -mx-4 justify-center">
         <!-- Card 1: หมวดหมู่แก้ว -->
         <div class="w-full md:w-1/3 px-4 mb-8">
           <div class="relative flex flex-col bg-white border border-gray-200 rounded-lg overflow-hidden">
             <div class="relative">
-              <img src="link_to_glass_image.jpg" alt="Glass" class="w-full h-40 object-cover" />
+              <img src="{% static 'plastic.jpeg' %}"alt="Glass" class="w-full h-70 object-cover" />
             </div>
             <div class="p-4">
-              <h5 class="text-lg font-semibold text-gray-900 mb-2">หมวดหมู่แก้ว</h5>
+              <h5 class="text-lg font-semibold text-gray-900 mb-2">หมวดขวดพลาสติก</h5>
               <p class="text-gray-700">รายละเอียดเพิ่มเติมเกี่ยวกับขยะหมวดหมู่แก้ว...</p>
             </div>
           </div>
@@ -74,7 +78,7 @@
         <div class="w-full md:w-1/3 px-4 mb-8">
           <div class="relative flex flex-col bg-white border border-gray-200 rounded-lg overflow-hidden">
             <div class="relative">
-              <img src="link_to_metal_image.jpg" alt="Metal" class="w-full h-40 object-cover" />
+              <img src="{% static 'plastic2.jpeg' %}" alt="Glass" class="w-full h-70 object-cover" />
             </div>
             <div class="p-4">
               <h5 class="text-lg font-semibold text-gray-900 mb-2">หมวดหมู่โลหะ</h5>
@@ -87,7 +91,7 @@
         <div class="w-full md:w-1/3 px-4 mb-8">
           <div class="relative flex flex-col bg-white border border-gray-200 rounded-lg overflow-hidden">
             <div class="relative">
-              <img src="link_to_paper_image.jpg" alt="Paper" class="w-full h-40 object-cover" />
+              <img src="{% static 'plastic3.jpeg' %}" alt="Glass" class="w-full h-70 object-cover" />
             </div>
             <div class="p-4">
               <h5 class="text-lg font-semibold text-gray-900 mb-2">หมวดหมู่กระดาษ</h5>
@@ -96,14 +100,15 @@
           </div>
         </div>
       </div>
-      <h2 class="text-center bg-black" >-ptgxupd</h2>
+
+      <h2 class="text-2xl font-bold mb-4 text-black text-center">ขวดพลาสติก</h2>
       
       <div class="container mx-auto flex flex-wrap -mx-4">
         <!-- Card 1: หมวดหมู่แก้ว -->
         <div class="w-full md:w-1/3 px-4 mb-8">
           <div class="relative flex flex-col bg-white border border-gray-200 rounded-lg overflow-hidden">
             <div class="relative">
-              <img src="link_to_glass_image.jpg" alt="Glass" class="w-full h-40 object-cover" />
+              <img src="https://www.bltbangkok.com/wp-content/uploads/2019/05/45b844b9720fd5db91da79c7d324f731-696x464.jpg" alt="Glass" class="w-full h-70 object-cover" />
             </div>
             <div class="p-4">
               <h5 class="text-lg font-semibold text-gray-900 mb-2">หมวดหมู่แก้ว</h5>
@@ -116,7 +121,7 @@
         <div class="w-full md:w-1/3 px-4 mb-8">
           <div class="relative flex flex-col bg-white border border-gray-200 rounded-lg overflow-hidden">
             <div class="relative">
-              <img src="link_to_metal_image.jpg" alt="Metal" class="w-full h-40 object-cover" />
+              <img src="https://www.bltbangkok.com/wp-content/uploads/2019/05/45b844b9720fd5db91da79c7d324f731-696x464.jpg" alt="Glass" class="w-full h-70 object-cover" />
             </div>
             <div class="p-4">
               <h5 class="text-lg font-semibold text-gray-900 mb-2">หมวดหมู่โลหะ</h5>
@@ -129,7 +134,179 @@
         <div class="w-full md:w-1/3 px-4 mb-8">
           <div class="relative flex flex-col bg-white border border-gray-200 rounded-lg overflow-hidden">
             <div class="relative">
-              <img src="link_to_paper_image.jpg" alt="Paper" class="w-full h-40 object-cover" />
+              <img src="https://www.bltbangkok.com/wp-content/uploads/2019/05/45b844b9720fd5db91da79c7d324f731-696x464.jpg" alt="Glass" class="w-full h-70 object-cover" />
+            </div>
+            <div class="p-4">
+              <h5 class="text-lg font-semibold text-gray-900 mb-2">หมวดหมู่กระดาษ</h5>
+              <p class="text-gray-700">รายละเอียดเพิ่มเติมเกี่ยวกับขยะหมวดหมู่กระดาษ...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="text-2xl font-bold mb-4 text-black text-center">ขวดพลาสติก</h2>
+      
+      <div class="container mx-auto flex flex-wrap -mx-4">
+        <!-- Card 1: หมวดหมู่แก้ว -->
+        <div class="w-full md:w-1/3 px-4 mb-8">
+          <div class="relative flex flex-col bg-white border border-gray-200 rounded-lg overflow-hidden">
+            <div class="relative">
+              <img src="https://www.bltbangkok.com/wp-content/uploads/2019/05/45b844b9720fd5db91da79c7d324f731-696x464.jpg" alt="Glass" class="w-full h-70 object-cover" />
+            </div>
+            <div class="p-4">
+              <h5 class="text-lg font-semibold text-gray-900 mb-2">หมวดหมู่แก้ว</h5>
+              <p class="text-gray-700">รายละเอียดเพิ่มเติมเกี่ยวกับขยะหมวดหมู่แก้ว...</p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Card 2: หมวดหมู่โลหะ -->
+        <div class="w-full md:w-1/3 px-4 mb-8">
+          <div class="relative flex flex-col bg-white border border-gray-200 rounded-lg overflow-hidden">
+            <div class="relative">
+              <img src="https://www.bltbangkok.com/wp-content/uploads/2019/05/45b844b9720fd5db91da79c7d324f731-696x464.jpg" alt="Glass" class="w-full h-70 object-cover" />
+            </div>
+            <div class="p-4">
+              <h5 class="text-lg font-semibold text-gray-900 mb-2">หมวดหมู่โลหะ</h5>
+              <p class="text-gray-700">รายละเอียดเพิ่มเติมเกี่ยวกับขยะหมวดหมู่โลหะ...</p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Card 3: หมวดหมู่กระดาษ -->
+        <div class="w-full md:w-1/3 px-4 mb-8">
+          <div class="relative flex flex-col bg-white border border-gray-200 rounded-lg overflow-hidden">
+            <div class="relative">
+              <img src="https://www.bltbangkok.com/wp-content/uploads/2019/05/45b844b9720fd5db91da79c7d324f731-696x464.jpg" alt="Glass" class="w-full h-70 object-cover" />
+            </div>
+            <div class="p-4">
+              <h5 class="text-lg font-semibold text-gray-900 mb-2">หมวดหมู่กระดาษ</h5>
+              <p class="text-gray-700">รายละเอียดเพิ่มเติมเกี่ยวกับขยะหมวดหมู่กระดาษ...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="text-2xl font-bold mb-4 text-black text-center">ขวดพลาสติก</h2>
+      
+      <div class="container mx-auto flex flex-wrap -mx-4">
+        <!-- Card 1: หมวดหมู่แก้ว -->
+        <div class="w-full md:w-1/3 px-4 mb-8">
+          <div class="relative flex flex-col bg-white border border-gray-200 rounded-lg overflow-hidden">
+            <div class="relative">
+              <img src="https://www.bltbangkok.com/wp-content/uploads/2019/05/45b844b9720fd5db91da79c7d324f731-696x464.jpg" alt="Glass" class="w-full h-70 object-cover" />
+            </div>
+            <div class="p-4">
+              <h5 class="text-lg font-semibold text-gray-900 mb-2">หมวดหมู่แก้ว</h5>
+              <p class="text-gray-700">รายละเอียดเพิ่มเติมเกี่ยวกับขยะหมวดหมู่แก้ว...</p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Card 2: หมวดหมู่โลหะ -->
+        <div class="w-full md:w-1/3 px-4 mb-8">
+          <div class="relative flex flex-col bg-white border border-gray-200 rounded-lg overflow-hidden">
+            <div class="relative">
+              <img src="https://www.bltbangkok.com/wp-content/uploads/2019/05/45b844b9720fd5db91da79c7d324f731-696x464.jpg" alt="Glass" class="w-full h-70 object-cover" />
+            </div>
+            <div class="p-4">
+              <h5 class="text-lg font-semibold text-gray-900 mb-2">หมวดหมู่โลหะ</h5>
+              <p class="text-gray-700">รายละเอียดเพิ่มเติมเกี่ยวกับขยะหมวดหมู่โลหะ...</p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Card 3: หมวดหมู่กระดาษ -->
+        <div class="w-full md:w-1/3 px-4 mb-8">
+          <div class="relative flex flex-col bg-white border border-gray-200 rounded-lg overflow-hidden">
+            <div class="relative">
+              <img src="https://www.bltbangkok.com/wp-content/uploads/2019/05/45b844b9720fd5db91da79c7d324f731-696x464.jpg" alt="Glass" class="w-full h-70 object-cover" />
+            </div>
+            <div class="p-4">
+              <h5 class="text-lg font-semibold text-gray-900 mb-2">หมวดหมู่กระดาษ</h5>
+              <p class="text-gray-700">รายละเอียดเพิ่มเติมเกี่ยวกับขยะหมวดหมู่กระดาษ...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="text-2xl font-bold mb-4 text-black text-center">ขวดพลาสติก</h2>
+      
+      <div class="container mx-auto flex flex-wrap -mx-4">
+        <!-- Card 1: หมวดหมู่แก้ว -->
+        <div class="w-full md:w-1/3 px-4 mb-8">
+          <div class="relative flex flex-col bg-white border border-gray-200 rounded-lg overflow-hidden">
+            <div class="relative">
+              <img src="https://www.bltbangkok.com/wp-content/uploads/2019/05/45b844b9720fd5db91da79c7d324f731-696x464.jpg" alt="Glass" class="w-full h-70 object-cover" />
+            </div>
+            <div class="p-4">
+              <h5 class="text-lg font-semibold text-gray-900 mb-2">หมวดหมู่แก้ว</h5>
+              <p class="text-gray-700">รายละเอียดเพิ่มเติมเกี่ยวกับขยะหมวดหมู่แก้ว...</p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Card 2: หมวดหมู่โลหะ -->
+        <div class="w-full md:w-1/3 px-4 mb-8">
+          <div class="relative flex flex-col bg-white border border-gray-200 rounded-lg overflow-hidden">
+            <div class="relative">
+              <img src="https://www.bltbangkok.com/wp-content/uploads/2019/05/45b844b9720fd5db91da79c7d324f731-696x464.jpg" alt="Glass" class="w-full h-70 object-cover" />
+            </div>
+            <div class="p-4">
+              <h5 class="text-lg font-semibold text-gray-900 mb-2">หมวดหมู่โลหะ</h5>
+              <p class="text-gray-700">รายละเอียดเพิ่มเติมเกี่ยวกับขยะหมวดหมู่โลหะ...</p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Card 3: หมวดหมู่กระดาษ -->
+        <div class="w-full md:w-1/3 px-4 mb-8">
+          <div class="relative flex flex-col bg-white border border-gray-200 rounded-lg overflow-hidden">
+            <div class="relative">
+              <img src="https://www.bltbangkok.com/wp-content/uploads/2019/05/45b844b9720fd5db91da79c7d324f731-696x464.jpg" alt="Glass" class="w-full h-70 object-cover" />
+            </div>
+            <div class="p-4">
+              <h5 class="text-lg font-semibold text-gray-900 mb-2">หมวดหมู่กระดาษ</h5>
+              <p class="text-gray-700">รายละเอียดเพิ่มเติมเกี่ยวกับขยะหมวดหมู่กระดาษ...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="text-2xl font-bold mb-4 text-black text-center">ขวดพลาสติก</h2>
+      
+      <div class="container mx-auto flex flex-wrap -mx-4">
+        <!-- Card 1: หมวดหมู่แก้ว -->
+        <div class="w-full md:w-1/3 px-4 mb-8">
+          <div class="relative flex flex-col bg-white border border-gray-200 rounded-lg overflow-hidden">
+            <div class="relative">
+              <img src="https://www.bltbangkok.com/wp-content/uploads/2019/05/45b844b9720fd5db91da79c7d324f731-696x464.jpg" alt="Glass" class="w-full h-70 object-cover" />
+            </div>
+            <div class="p-4">
+              <h5 class="text-lg font-semibold text-gray-900 mb-2">หมวดหมู่แก้ว</h5>
+              <p class="text-gray-700">รายละเอียดเพิ่มเติมเกี่ยวกับขยะหมวดหมู่แก้ว...</p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Card 2: หมวดหมู่โลหะ -->
+        <div class="w-full md:w-1/3 px-4 mb-8">
+          <div class="relative flex flex-col bg-white border border-gray-200 rounded-lg overflow-hidden">
+            <div class="relative">
+              <img src="https://www.bltbangkok.com/wp-content/uploads/2019/05/45b844b9720fd5db91da79c7d324f731-696x464.jpg" alt="Glass" class="w-full h-70 object-cover" />
+            </div>
+            <div class="p-4">
+              <h5 class="text-lg font-semibold text-gray-900 mb-2">หมวดหมู่โลหะ</h5>
+              <p class="text-gray-700">รายละเอียดเพิ่มเติมเกี่ยวกับขยะหมวดหมู่โลหะ...</p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Card 3: หมวดหมู่กระดาษ -->
+        <div class="w-full md:w-1/3 px-4 mb-8">
+          <div class="relative flex flex-col bg-white border border-gray-200 rounded-lg overflow-hidden">
+            <div class="relative">
+              <img src="https://www.bltbangkok.com/wp-content/uploads/2019/05/45b844b9720fd5db91da79c7d324f731-696x464.jpg" alt="Glass" class="w-full h-70 object-cover" />
             </div>
             <div class="p-4">
               <h5 class="text-lg font-semibold text-gray-900 mb-2">หมวดหมู่กระดาษ</h5>

@@ -1,0 +1,14 @@
+<!-- detail_order.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Order Details</h2>
+  <!-- แสดงรายละเอียดของออเดอร์ -->
+  <p>ผู้เรียกรถ: {{ order.profile.user }}</p>
+  <p>วันที่เรียก: {{ order.created_at }}</p>
+  <p>ที่อยู่: {{ order.address }}</p>
+  <p>สถานะ: {{ order.status }}</p>
+  <!-- เพิ่มฟอร์มสำหรับแก้ไขสถานะและกรอกข้อมูลของออเดอร์ -->
+  <a href="{% url 'edit_order' order.pk %}">Edit Order</a>
+{% endblock %}

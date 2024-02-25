@@ -78,10 +78,6 @@ def recycle_purchase(request):
     return render(request, 'member/recycle_purchase.html', {'form': form})
 
 
-def detail_purchase(request, purchase_id):
-    # ดึงข้อมูลการจองจากฐานข้อมูลด้วยรหัสการจอง
-    purchase = get_object_or_404(RecyclePurchase, id=purchase_id)
-    return render(request, 'detail_purchase.html', {'purchase': purchase})
 
 
 def list_order(request):
@@ -94,3 +90,26 @@ def list_order(request):
         list_orders = RecyclePurchase.objects.filter(profile__user=request.user)
 
     return render(request, 'list_order.html', {'list_orders': list_orders})
+    
+def order_detail(request, order_id):
+    # ดึงข้อมูลออเดอร์จากฐานข้อมูล
+    order = get_object_or_404(RecyclePurchase, pk=order_id)
+    return render(request, 'detail_purchase.html', {'order': order})
+
+def update_order_status(request, order_id):
+    order = RecyclePurchase.objects.get(id=order_id)
+    if request.method == 'POST':
+        new_status = request.POST.get('status')
+        order.status = new_status
+        order.save()
+        return redirect('order_detail', order_id=order_id)
+    return render(request, 'order_detail.html', {'order': order})
+
+def addweight(request, weight_id):
+    weight = RecyclePurchase.objects.get(id=weight_id)
+    if request.method == 'POST':
+        new_status = request.POST.get('status')
+        weight.status = new_status
+        weight.save()
+        return redirect('order_detail', weight_id=weight_id)
+    return render(request, 'order_detail.html', {'weight': weight})

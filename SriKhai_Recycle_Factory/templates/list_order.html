@@ -11,10 +11,10 @@
         {% for list_order in list_orders %}
             
                 <div class="grid grid-cols-1 gap-5 border mt-5 p-5 rounded-lg shadow-slate-400 shadow-lg">
-                    <a href="{% url 'detail_purchase' list_order.id %}" class="hover: scale-y-110">
+                    <a href="{% url 'order_detail' list_order.id %}" class="hover: scale-y-110">
                         <div class="p-2 border-zinc-800 rounded-lg shadow-emerald-600 shodow-sm">
                             <p>ลำดับ: {{ list_order.id }}</p>
-                            <p>ชื่อผู้ใช้: {{ list_order.profile.username }} {{ list_order.profile.last_name }}</p>
+                            <p>ชื่อผู้ใช้: {{ list_order.profile.first_name }} {{ list_order.profile.last_name }}</p>
                             <p>ที่อยู่: {{ list_order.address }}</p>
                             <p>สถานะ: {{ list_order.status }}</p>
                         </div>

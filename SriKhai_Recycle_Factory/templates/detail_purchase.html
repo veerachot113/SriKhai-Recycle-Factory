@@ -1,35 +1,77 @@
+<!-- detail_purchase.html -->
 {% extends 'base.html' %}
-
 {% load crispy_forms_tags %}
-
 {% block content %}
-<div class="flex justify-center " style="font-family:serif">
-    <div class="container mt-10">
-        <div class="text-center text-2xl font-bold">
-            <p>รายการรับรถ</p>
+<div class="container mx-auto">
+    <div class="max-w-2xl mx-auto mt-10 p-6 bg-white rounded-md shadow-md border-2 border-gray-300">
+        <h1 class="text-xl font-bold mb-4">รายละเอียดการจอง</h1>
+        <div class="mb-4">
+            <p class="font-semibold">ผู้เรียกรถ: {{ order.profile.first_name }} {{ order.profile.last_name }}</p>
         </div>
-        {% for list_order in list_orders %}
-            
-                <div class="grid grid-cols-1 gap-5 border mt-5 p-5 rounded-lg shadow-slate-400 shadow-lg">
-                    <a href="" class="hover: scale-y-110">
-                        <div class="p-2 border-zinc-800 rounded-lg shadow-emerald-600 shodow-sm">
-                            <p>รูปภาพ: <img src="{{ list_order.image.url }}" width="100"></p>
-                            <p>ผู้เรียกรถ: {{ list_order.profile.user.username }}</p>
-                            <p>วันที่เรียก: {{ list_order.created_at }}</p>
-                            <p>ที่อยู่: {{ list_order.address }}</p>
-                            <p>สถานะ: {{ list_order.status }}</p>
-                        </div>
-                    </a>
-                    <div>
-                        <form action="{% url 'toggle_status' list_order.id %}" method="POST">
-                            {% csrf_token %}
-                            <button type="submit">{% if list_order.status == 'กำลังดำเนินการ' %}เรียกรถ{% else %}ยกเลิก{% endif %}</button>
-                        </form>
-                    </div>
-                </div>
-            
-                
-        {% endfor %}
+        <div class="mb-4">
+            <p class="font-semibold">วันที่เรียก: {{ order.created_at }}</p>
+        </div>
+        <div class="mb-4">
+            <p class="font-semibold">ที่อยู่: {{ order.address }}</p>
+        </div>
+        <div class="mb-4">
+            <p class="font-semibold">ชื่อบัญชี: {{ order.profile.bank }}</p>
+        </div>
+        <div class="mb-4">
+            <p class="font-semibold">เลขบัญชี: {{ order.profile.bank_accounts }}</p>
+        </div>
+        <div class="mb-4">
+            <p class="font-semibold">เลขบัญชี: {{ order.profile.bank_number }}</p>
+        </div>
+        <div class="mb-4">
+            <p class="font-semibold">สถานะ: {{ order.status}}</p>
+        </div>
+        <div class="mb-4">
+            <p class="font-semibold">รูปภาพขยะที่เพิ่มเข้ามา:</p>
+            <img src="{{ order.image.url }}" alt="Recycle Image" class="w-full h-auto">
+        </div>
+        <div class="mb-4">
+            <p class="font-semibold">รายการขยะ:</p>
+            <ul>
+                {% if order.has_bottle %}
+                    <li>ขวดพลาสติก {{ order.weight_has_bottle }}  กิโลกรัม</li>
+                {% endif %}
+                {% if order.has_bag %}
+                    <li>ขวดพลาสติก{{ order.weight_has_bag }}</li>
+                {% endif %}
+                {% if order.has_can %}
+                    <li>ขวดพลาสติก{{ order.weight_has_can }}</li>
+                {% endif %}
+                {% if order.has_glass_bottle %}
+                    <li>แก้ว{{ order.weight_has_glass_buttle }}</li>
+                {% endif %}
+                {% if order.has_paper %}
+                    <li>กระดาษ{{ order.weight_has_paper }}</li>
+                {% endif %}
+            </ul>
+        </div>
+
+   
+        {% if request.user.is_superuser %}
+        <div class="mb-4">
+            <form method="post" action="{% url 'update_order_status' order.id %}">
+                {% csrf_token %}
+                <label for="status" class="block font-semibold">เปลี่ยนสถานะ:</label>
+                <select name="status" id="status" class="block border border-gray-300 rounded-md p-2 w-full mt-1">
+                    <option value="กำลังดำเนินการ">กำลังดำเนินการ</option>
+                    <option value="กำลังเข้ารับ">กำลังเข้ารับ</option>
+                    <option value="รับแล้ว">รับแล้ว</option>
+                    <option value="ตรวจสอบขยะ">ตรวจสอบขยะ</option>
+                    <option value="รอชำระเงิน">รอชำระเงิน</option>
+                    <option value="เสร็จสิ้น">เสร็จสิ้น</option>
+                    <option value="ยกเลิก">ยกเลิก</option>
+                </select>
+                <button type="submit" class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    บันทึก
+                </button>
+            </form>
+        </div>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

@@ -26,4 +26,4 @@ urlpatterns = [
     path('Member/', include('Member.urls')),
     path('', include('BaseApp.urls')),
 
-] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT) +static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
