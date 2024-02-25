@@ -66,6 +66,10 @@ def recycle_purchase(request):
     if request.method == 'POST':
         form = RecyclePurchaseForm(request.POST, request.FILES)
         if form.is_valid():
+            # ดึงข้อมูลโปรไฟล์ของผู้ใช้งานปัจจุบัน
+            profile = Profile.objects.get(user=request.user)
+            # บันทึกข้อมูลการรับรถโดยเชื่อมโยงกับโปรไฟล์
+            form.instance.profile = profile
             form.save()
             return redirect('home')  # หรือไปยัง URL ที่คุณต้องการหลังจากบันทึกข้อมูลแล้ว
     else:
@@ -74,12 +78,19 @@ def recycle_purchase(request):
     return render(request, 'member/recycle_purchase.html', {'form': form})
 
 
-def detail_order(request, order_id):
+def detail_purchase(request, purchase_id):
     # ดึงข้อมูลการจองจากฐานข้อมูลด้วยรหัสการจอง
-    order = get_object_or_404(RecyclePurchase, id=order_id)
-    return render(request, 'detail_order.html', {'order': order})
+    purchase = get_object_or_404(RecyclePurchase, id=purchase_id)
+    return render(request, 'detail_purchase.html', {'purchase': purchase})
 
 
 def list_order(request):
-    list_orders = RecyclePurchase.objects.all()
+    # ตรวจสอบว่าผู้ใช้เป็น superuser หรือไม่
+    if request.user.is_superuser:
+        # ถ้าเป็น superuser ให้ดึงรายการรับรถทั้งหมด
+        list_orders = RecyclePurchase.objects.all()
+    else:
+        # ถ้าไม่ใช่ superuser ให้ดึงรายการรับรถของผู้ใช้นั้นๆ เท่านั้น
+        list_orders = RecyclePurchase.objects.filter(profile__user=request.user)
+
     return render(request, 'list_order.html', {'list_orders': list_orders})
