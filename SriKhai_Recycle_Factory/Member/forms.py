@@ -17,5 +17,6 @@ class RecyclePurchaseForm(forms.ModelForm):
             'has_paper': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
             'weight_has_paper': forms.NumberInput(attrs={'class': 'form-control'}),
             'slip_image': forms.FileInput(attrs={'class': 'form-control-file'}),  # เพิ่ม widget สำหรับ slip_image ที่นี่
+           
         }
 

@@ -93,14 +93,7 @@
             </form>
         </div>
 
-        <div class="mb-4">
-            <p class="font-semibold">รูปภาพสลิป:</p>
-            {% if order.slip_image %}
-                <img src="{{ order.slip_image.url }}" alt="Slip Image" class="w-full h-auto">
-            {% else %}
-                <p>ยังไม่มีรูปภาพสลิป</p>
-            {% endif %}
-        </div>
+
         <div class="mb-4">
             <p class="font-semibold">อัพโหลดสลิปการโอนเงิน:</p>
             <form method="post" enctype="multipart/form-data" action="{% url 'upload_slip' order_id=order.id %}">
@@ -110,6 +103,15 @@
             </form>
         </div>
         {% endif %}
+        <div class="mb-4">
+            <p class="font-semibold">รูปภาพสลิป:</p>
+            {% if order.slip_image %}
+            <a href="{% url 'slip_detail' order_id=order.id %}">ดูข้อมูลสลิป</a>
+                <a href="{{ order.slip_image.url }}" target="_blank"><img src="{{ order.slip_image.url }}" alt="Slip Image" class="w-full h-auto"></a>
+            {% else %}
+                <p>ยังไม่มีรูปภาพสลิป</p>
+            {% endif %}
+        </div>
 
     </div>
 </div>

@@ -29,6 +29,8 @@ class RecyclePurchase(models.Model):
     weight_has_can = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
     weight_has_glass_bottle = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
     weight_has_paper = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
+    # amount_received = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+
 
     TYPES_CHOICES = [
         ('กำลังดำเนินการ', 'กำลังดำเนินการ'),
