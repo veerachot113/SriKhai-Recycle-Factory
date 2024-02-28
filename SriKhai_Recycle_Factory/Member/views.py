@@ -1,4 +1,6 @@
 #Member/views.py
+from audioop import reverse
+from pyexpat.errors import messages
 from django.shortcuts import render,redirect
 from .models import*
 from .forms import *
@@ -105,11 +107,40 @@ def update_order_status(request, order_id):
         return redirect('order_detail', order_id=order_id)
     return render(request, 'order_detail.html', {'order': order})
 
-def addweight(request, weight_id):
-    weight = RecyclePurchase.objects.get(id=weight_id)
+def add_weight(request, order_id):
     if request.method == 'POST':
-        new_status = request.POST.get('status')
-        weight.status = new_status
-        weight.save()
-        return redirect('order_detail', weight_id=weight_id)
-    return render(request, 'order_detail.html', {'weight': weight})
+        # รับข้อมูลน้ำหนักขยะจาก POST request
+        weight_has_bottle = request.POST.get('weight_has_bottle')
+        weight_has_can = request.POST.get('weight_has_can')
+        weight_has_glass_bottle = request.POST.get('weight_has_glass_bottle')
+        weight_has_paper = request.POST.get('weight_has_paper')
+
+        # ค้นหาการสั่งซื้อที่ต้องการจะเพิ่มข้อมูลน้ำหนักขยะ
+        order = RecyclePurchase.objects.get(id=order_id)
+
+        # บันทึกข้อมูลน้ำหนักขยะลงในฐานข้อมูล
+        order.weight_has_bottle = weight_has_bottle
+        order.weight_has_can = weight_has_can
+        order.weight_has_glass_bottle = weight_has_glass_bottle
+        order.weight_has_paper = weight_has_paper
+        order.save()
+
+
+        return redirect('order_detail', order_id=order_id)
+    else:
+        # หากไม่ใช่ POST request ให้ redirect กลับไปยังหน้าแรกหรือหน้าที่เหมาะสม
+        return redirect('home')  
+    
+def upload_slip(request, order_id):
+    order = RecyclePurchase.objects.get(id=order_id)
+    if request.method == 'POST' and request.FILES.get('slip_image'):
+        slip_image = request.FILES['slip_image']
+        # Save the uploaded image
+        order.slip_image = slip_image
+        order.save()
+        # You can optionally save the image to a specific location if needed
+        # with default_storage.open('path/to/save/slip_image.jpg', 'wb+') as destination:
+        #     for chunk in slip_image.chunks():
+        #         destination.write(chunk)
+        return redirect('order_detail', order_id=order_id)
+    return render(request, 'detail_purchase.html', {'order': order})

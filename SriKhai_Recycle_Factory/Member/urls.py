@@ -12,9 +12,14 @@ urlpatterns = [
     path('list_order/', list_order, name='list_order'), 
     path('order/<int:order_id>/',order_detail, name='order_detail'),
     path('order/<int:order_id>/update_status/', update_order_status, name='update_order_status'),
+    path('add_weight/<int:order_id>/', add_weight, name='add_weight'),
+    path('order/<int:order_id>/upload_slip/', views.upload_slip, name='upload_slip'),
+
+
+
+
     
     # เพิ่ม URL pattern สำหรับแสดงหน้ารายละเอียดของออเดอร์
     # เพิ่ม URL pattern สำหรับแสดงรายการออเดอร์ทั้งหมด
-    
     
 ]

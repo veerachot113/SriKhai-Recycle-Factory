@@ -22,12 +22,10 @@ class RecyclePurchase(models.Model):
     address = models.TextField()
     map_pin = models.CharField(max_length=100)
     has_bottle = models.BooleanField(default=False)
-    has_bag = models.BooleanField(default=False)
     has_can = models.BooleanField(default=False)
     has_glass_bottle = models.BooleanField(default=False)
     has_paper = models.BooleanField(default=False)
     weight_has_bottle = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
-    weight_has_bag = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
     weight_has_can = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
     weight_has_glass_bottle = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
     weight_has_paper = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
@@ -41,9 +39,11 @@ class RecyclePurchase(models.Model):
         ('เสร็จสิ้น', 'เสร็จสิ้น'),
         ('ยกเลิก', 'ยกเลิก'),
     ]
-    status = models.CharField(max_length=200, choices=TYPES_CHOICES, null=True, blank=True)
+    status = models.CharField(max_length=200, choices=TYPES_CHOICES, null=True, blank=True,default=False)
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     id = models.AutoField(primary_key=True)
-
+    slip_image = models.ImageField(upload_to='slip_image/', null=True, blank=True)  # เพิ่มฟิลด์ใหม่นี้
     def __str__(self):
         return f'Recycle Purchase: {self.address}'
+    
+    

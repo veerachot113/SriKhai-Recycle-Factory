@@ -15,6 +15,9 @@
             <p class="font-semibold">ที่อยู่: {{ order.address }}</p>
         </div>
         <div class="mb-4">
+            <p class="font-semibold">ที่อยู่: {{ order.map_pin }}</p>
+        </div>
+        <div class="mb-4">
             <p class="font-semibold">ชื่อบัญชี: {{ order.profile.bank }}</p>
         </div>
         <div class="mb-4">
@@ -34,27 +37,23 @@
             <p class="font-semibold">รายการขยะ:</p>
             <ul>
                 {% if order.has_bottle %}
-                    <li>ขวดพลาสติก {{ order.weight_has_bottle }}  กิโลกรัม</li>
-                {% endif %}
-                {% if order.has_bag %}
-                    <li>ขวดพลาสติก{{ order.weight_has_bag }}</li>
+                    <li>ขวดพลาสติก {{ order.weight_has_bottle }} กิโลกรัม</li>
                 {% endif %}
                 {% if order.has_can %}
-                    <li>ขวดพลาสติก{{ order.weight_has_can }}</li>
+                    <li>กระป๋อง {{ order.weight_has_can }} กิโลกรัม</li>
                 {% endif %}
                 {% if order.has_glass_bottle %}
-                    <li>แก้ว{{ order.weight_has_glass_buttle }}</li>
+                    <li>ขวดแก้ว {{ order.weight_has_glass_bottle }} กิโลกรัม</li>
                 {% endif %}
                 {% if order.has_paper %}
-                    <li>กระดาษ{{ order.weight_has_paper }}</li>
+                    <li>กระดาษ {{ order.weight_has_paper }} กิโลกรัม</li>
                 {% endif %}
             </ul>
         </div>
 
-   
         {% if request.user.is_superuser %}
         <div class="mb-4">
-            <form method="post" action="{% url 'update_order_status' order.id %}">
+            <form method="post" action="{% url 'update_order_status' order_id=order.id %}">
                 {% csrf_token %}
                 <label for="status" class="block font-semibold">เปลี่ยนสถานะ:</label>
                 <select name="status" id="status" class="block border border-gray-300 rounded-md p-2 w-full mt-1">
@@ -66,12 +65,52 @@
                     <option value="เสร็จสิ้น">เสร็จสิ้น</option>
                     <option value="ยกเลิก">ยกเลิก</option>
                 </select>
+                
                 <button type="submit" class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     บันทึก
                 </button>
             </form>
         </div>
+
+        <div class="mb-4">
+            <form method="post" action="{% url 'add_weight' order.id %}">
+                {% csrf_token %}
+                <label for="weight_has_bottle" class="block font-semibold mt-4">น้ำหนักขวดพลาสติก (กิโลกรัม):</label>
+                <input type="number" name="weight_has_bottle" id="weight_has_bottle" class="block border border-gray-300 rounded-md p-2 w-full mt-1" value="{{ order.weight_has_bottle }}">
+                
+                <label for="weight_has_can" class="block font-semibold mt-4">น้ำหนักกระป๋อง (กิโลกรัม):</label>
+                <input type="number" name="weight_has_can" id="weight_has_can" class="block border border-gray-300 rounded-md p-2 w-full mt-1" value="{{ order.weight_has_can }}">
+                
+                <label for="weight_has_glass_bottle" class="block font-semibold mt-4">น้ำหนักขวดแก้ว (กิโลกรัม):</label>
+                <input type="number" name="weight_has_glass_bottle" id="weight_has_glass_bottle" class="block border border-gray-300 rounded-md p-2 w-full mt-1" value="{{ order.weight_has_glass_bottle }}">
+                
+                <label for="weight_has_paper" class="block font-semibold mt-4">น้ำหนักกระดาษ (กิโลกรัม):</label>
+                <input type="number" name="weight_has_paper" id="weight_has_paper" class="block border border-gray-300 rounded-md p-2 w-full mt-1" value="{{ order.weight_has_paper }}">
+                
+                <button type="submit" class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    บันทึก
+                </button>
+            </form>
+        </div>
+
+        <div class="mb-4">
+            <p class="font-semibold">รูปภาพสลิป:</p>
+            {% if order.slip_image %}
+                <img src="{{ order.slip_image.url }}" alt="Slip Image" class="w-full h-auto">
+            {% else %}
+                <p>ยังไม่มีรูปภาพสลิป</p>
+            {% endif %}
+        </div>
+        <div class="mb-4">
+            <p class="font-semibold">อัพโหลดสลิปการโอนเงิน:</p>
+            <form method="post" enctype="multipart/form-data" action="{% url 'upload_slip' order_id=order.id %}">
+                {% csrf_token %}
+                <input type="file" name="slip_image">
+                <button type="submit" class="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">อัพโหลด</button>
+            </form>
+        </div>
         {% endif %}
+
     </div>
 </div>
 {% endblock %}
