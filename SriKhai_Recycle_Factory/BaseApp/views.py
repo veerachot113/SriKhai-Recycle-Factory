@@ -55,3 +55,6 @@ def sign_in(request):
     return render(request, 'login.html', {'form': form})
 
 
+
+def contact(request):
+    return render(request,'contact.html')

@@ -15,6 +15,7 @@ urlpatterns = [
     path('add_weight/<int:order_id>/', add_weight, name='add_weight'),
     path('order/<int:order_id>/upload_slip/', views.upload_slip, name='upload_slip'),
     path('slip/<int:order_id>/', slip_detail, name='slip_detail'),
+
       
 
 
