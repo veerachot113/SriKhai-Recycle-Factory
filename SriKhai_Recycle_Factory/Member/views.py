@@ -105,7 +105,7 @@ def update_order_status(request, order_id):
         order.status = new_status
         order.save()
         return redirect('order_detail', order_id=order_id)
-    return render(request, 'order_detail.html', {'order': order})
+    return render(request, 'detail_purchase.html', {'order': order})
 
 def add_weight(request, order_id):
     if request.method == 'POST':
