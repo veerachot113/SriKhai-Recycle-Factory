@@ -1,5 +1,5 @@
 <!-- identity.html -->
-{%  extends 'base.html' %}
+{% extends 'base.html' %}
 
 {% load crispy_forms_tags %}
 
@@ -24,6 +24,10 @@
                     <textarea id="address" required name="address" rows="3" class="mt-1 p-2 block w-full border rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
                 </div>
                 <div class="mb-4">
+                    <label for="phone" class="block text-sm font-medium text-gray-700">เบอร์โทร</label>
+                    <input type="text" required id="phone" name="phone" class="mt-1 p-2 block w-full border rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                </div>
+                <div class="mb-4">
                     <label for="bank" class="block text-sm font-medium text-gray-700">ธนาคาร</label>
                     <input type="text" required id="bank" name="bank" class="mt-1 p-2 block w-full border rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                 </div>
@@ -46,4 +50,29 @@
 
         </div>
     </div>
+    <script>
+        window.onload = function() {
+            var links = document.getElementsByTagName('a');
+            for (var i = 0; i < links.length; i++) {
+                var url = links[i].getAttribute('href');
+                if (url != "/recycle_purchase/" && url != "/list_order/") {
+                    links[i].onclick = function() {
+                        return false;
+                    };
+                } else {
+                    links[i].onclick = function() {
+                        // ทำสิ่งที่ต้องการเมื่อคลิกปุ่มที่ต้องการป้องกันการคลิก
+                        // หรือไม่ต้องใส่อะไรก็ได้ถ้าไม่ต้องการให้เกิดการกระทำใดๆ
+                    };
+                }
+            }
+        };
+    </script>
+    
 {% endblock %}
+
+
+
+
+
+

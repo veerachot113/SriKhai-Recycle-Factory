@@ -13,6 +13,7 @@ class Profile(models.Model):
     bank_accounts = models.CharField(max_length=350)
     bank_number = models.CharField(max_length=20)
     pass_bookQR = models.ImageField(upload_to='ImagePassBook/')
+    phone = models.CharField(max_length=20, default='')
     status = models.BooleanField(default=False)
     cancel = models.BooleanField(default=False)
 

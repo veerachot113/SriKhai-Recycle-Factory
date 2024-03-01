@@ -29,6 +29,8 @@ def identity(request):
             bank_accounts = request.POST.get('bank_accounts')
             bank_number = request.POST.get('bank_number')
             pass_bookQR = request.FILES.get('pass_bookQR')
+            phone = request.FILES.get('phone')
+
 
             profile = Profile.objects.create(
                 user=request.user,
@@ -38,7 +40,8 @@ def identity(request):
                 bank=bank,
                 bank_accounts=bank_accounts,
                 bank_number=bank_number,
-                pass_bookQR=pass_bookQR
+                pass_bookQR=pass_bookQR,
+                phone=phone,
             )
         else:
             # หากโปรไฟล์มีอยู่แล้วให้อัปเดตข้อมูล
@@ -49,6 +52,7 @@ def identity(request):
             profile.bank_accounts = request.POST.get('bank_accounts')
             profile.bank_number = request.POST.get('bank_number')
             profile.pass_bookQR = request.FILES.get('pass_bookQR')
+            profile.phone = request.FILES.get('phone')
             profile.save()
 
         return redirect('home_member')

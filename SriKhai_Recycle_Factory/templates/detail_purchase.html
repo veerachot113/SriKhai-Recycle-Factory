@@ -15,7 +15,10 @@
             <p class="font-semibold">ที่อยู่: {{ order.address }}</p>
         </div>
         <div class="mb-4">
-            <p class="font-semibold">ที่อยู่: {{ order.map_pin }}</p>
+            <p class="font-semibold">เบอร์โทร: {{ order.profile.phone }}</p>
+        </div>
+        <div class="mb-4">
+            <p class="font-semibold">ที่อยู่googlemap: {{ order.map_pin }}</p>
         </div>
         <div class="mb-4">
             <p class="font-semibold">ชื่อบัญชี: {{ order.profile.bank }}</p>
