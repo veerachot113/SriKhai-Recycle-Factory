@@ -5,7 +5,8 @@ from django.shortcuts import render,redirect
 from .models import*
 from .forms import *
 from django.shortcuts import render, get_object_or_404
-
+from django.contrib.auth.decorators import login_required
+@login_required
 def identity(request):
     try:
         # ตรวจสอบว่าโปรไฟล์สำหรับผู้ใช้งานนั้นมีอยู่หรือไม่
@@ -58,12 +59,12 @@ def identity(request):
 def home(request):
     pf = Profile.objects.filter(user=request.user)
     return render(request,'member/member_home.html',{'pf':pf.first()})
-
+@login_required
 def delete_pf(request):
     pf = Profile.objects.filter(user=request.user).delete()
     return redirect('identity')
 
-
+@login_required
 def recycle_purchase(request):
     if request.method == 'POST':
         form = RecyclePurchaseForm(request.POST, request.FILES)
@@ -81,7 +82,7 @@ def recycle_purchase(request):
 
 
 
-
+@login_required
 def list_order(request):
     # ตรวจสอบว่าผู้ใช้เป็น superuser หรือไม่
     if request.user.is_superuser:
@@ -106,7 +107,7 @@ def update_order_status(request, order_id):
         order.save()
         return redirect('order_detail', order_id=order_id)
     return render(request, 'detail_purchase.html', {'order': order})
-
+@login_required
 def add_weight(request, order_id):
     if request.method == 'POST':
         # รับข้อมูลน้ำหนักขยะจาก POST request
@@ -144,7 +145,7 @@ def upload_slip(request, order_id):
         #         destination.write(chunk)
         return redirect('order_detail', order_id=order_id)
     return render(request, 'detail_purchase.html', {'order': order})
-
+@login_required
 def slip_detail(request, order_id):
     # ดึงข้อมูลรายละเอียดการจองโดยใช้ ID
     order = get_object_or_404(RecyclePurchase, pk=order_id)
