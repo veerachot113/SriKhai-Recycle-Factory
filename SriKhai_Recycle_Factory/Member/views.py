@@ -148,4 +148,4 @@ def upload_slip(request, order_id):
 def slip_detail(request, order_id):
     # ดึงข้อมูลรายละเอียดการจองโดยใช้ ID
     order = get_object_or_404(RecyclePurchase, pk=order_id)
-    return render(request, 'Member/slip_detail.html', {'order': order})
+    return render(request, 'member/slip_detail.html', {'order': order})
