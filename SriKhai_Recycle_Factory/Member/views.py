@@ -29,7 +29,7 @@ def identity(request):
             bank_accounts = request.POST.get('bank_accounts')
             bank_number = request.POST.get('bank_number')
             pass_bookQR = request.FILES.get('pass_bookQR')
-            phone = request.FILES.get('phone')
+            phone = request.POST.get('phone')
 
 
             profile = Profile.objects.create(
@@ -52,7 +52,7 @@ def identity(request):
             profile.bank_accounts = request.POST.get('bank_accounts')
             profile.bank_number = request.POST.get('bank_number')
             profile.pass_bookQR = request.FILES.get('pass_bookQR')
-            profile.phone = request.FILES.get('phone')
+            profile.phone = request.POST.get('phone')
             profile.save()
 
         return redirect('home_member')
